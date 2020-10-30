@@ -30,7 +30,7 @@ namespace IndianStatesCensusAnalyser_Day_22.DTO
         public double waterArea;
         public double landArea;
         /// <summary>
-        /// Creating a parameterized Constructor.
+        /// Creating a parameterized Constructor for Indian State Census DAO.
         /// </summary>
         /// <param name="indianStateCensusDAO"></param>
         public CensusDTO(IndianStateCensusDAO indianStateCensusDAO)
@@ -40,5 +40,6 @@ namespace IndianStatesCensusAnalyser_Day_22.DTO
             this.area = indianStateCensusDAO.area;
             this.density = indianStateCensusDAO.density;
         }
+       
     }
 }

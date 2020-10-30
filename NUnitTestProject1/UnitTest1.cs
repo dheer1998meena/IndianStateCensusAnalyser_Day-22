@@ -92,9 +92,9 @@ namespace NUnitTestProject1
         public void GivenIncorrectIndianStateCensusFileHeaderType_ShouldThrownCensusAnalyserException()
         {
             //Act
-            var indianStateCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, delimeterIndianStateCensusFilePath, indianCensusHeaders));
+            var indianStateCensusResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, indianStateCensusFilePath, wrongHeaderIndianStateCensusFilePath));
             //Assert
-            Assert.AreEqual(CensusAnalyserException.Exception.INCOREECT_DELIMITER, indianStateCensusResult.exception);
+            Assert.AreEqual(CensusAnalyserException.Exception.INCORRECT_HEADER, indianStateCensusResult.exception);
         }
 
     }
