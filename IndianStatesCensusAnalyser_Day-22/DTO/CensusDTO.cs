@@ -40,6 +40,16 @@ namespace IndianStatesCensusAnalyser_Day_22.DTO
             this.area = indianStateCensusDAO.area;
             this.density = indianStateCensusDAO.density;
         }
-       
+        /// <summary>
+        ///  Creating a parameterized Constructor for Indian State Census DAO.
+        /// </summary>
+        /// <param name="censusDataDAO"></param>
+        public CensusDTO(StateCodeDataDAO stateCodeDataDAO)
+        {
+            this.serialNumber = stateCodeDataDAO.serialNumber;
+            this.stateName = stateCodeDataDAO.stateName;
+            this.tin = stateCodeDataDAO.tin;
+            this.stateCode = stateCodeDataDAO.stateCode;
+        }
     }
 }

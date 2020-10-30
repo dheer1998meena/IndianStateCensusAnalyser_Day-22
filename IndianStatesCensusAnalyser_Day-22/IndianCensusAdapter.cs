@@ -1,4 +1,11 @@
-﻿using IndianStatesCensusAnalyser_Day_22.DAO;
+﻿
+// --------------------------------------------------------------------------------------------------------------------
+// <copyright file="AddressBook.cs" company="Bridgelabz">
+//   Copyright © 2018 Company
+// </copyright>
+// <creator Name="Dheer Singh Meena"/>
+// --------------------------------------------------------------------------------------------------------------------
+using IndianStatesCensusAnalyser_Day_22.DAO;
 using IndianStatesCensusAnalyser_Day_22.DTO;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,8 +37,10 @@ namespace IndianStatesCensusAnalyser_Day_22
                 ///spliting data which is splitted by commma.
                 string[] coloumn = data.Split(",");
                 ///checking if it is indian state code or indian census data by csv extension
+                if (csvFilePath.Contains("IndiaStateCode.csv"))
+                    dataMap.Add(coloumn[1], new CensusDTO(new StateCodeDataDAO(coloumn[0], coloumn[1], coloumn[2], coloumn[3])));
                 if (csvFilePath.Contains("IndiaStateCensusData.csv"))
-                    dataMap.Add(coloumn[1], new CensusDTO(new IndianStateCensusDAO(coloumn[0], coloumn[1], coloumn[2], coloumn[3])));
+                    dataMap.Add(coloumn[1], new CensusDTO(new CensusDataDAO(coloumn[0], coloumn[1], coloumn[2], coloumn[3])));
             }
             return dataMap.ToDictionary(record => record.Key, record => record.Value);
         }
