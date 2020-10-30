@@ -16,7 +16,7 @@ namespace IndianStatesCensusAnalyser_Day_22
     public class CensusAnalyserException : Exception
     {
         public Exception exception;
-        // enum class for different exceptions
+        // enum class for different exceptions.
         public enum Exception
         {
             FILE_NOT_FOUND, INVALID_FILE_TYPE, INCORRECT_HEADER,
