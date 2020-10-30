@@ -21,7 +21,7 @@ namespace IndianStatesCensusAnalyser_Day_22.DAO
         public long density;
 
         /// <summary>
-        /// Creating Parameterized constructor.
+        /// Creating Parameterized constructor for Indian State Census DAO.
         /// </summary>
         /// <param name="state"></param>
         /// <param name="population"></param>
@@ -34,5 +34,6 @@ namespace IndianStatesCensusAnalyser_Day_22.DAO
             this.area = Convert.ToUInt32(area);
             this.density = Convert.ToUInt32(density);
         }
+
     }
 }
