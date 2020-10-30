@@ -96,6 +96,60 @@ namespace NUnitTestProject1
             //Assert
             Assert.AreEqual(CensusAnalyserException.Exception.INCORRECT_HEADER, indianStateCensusResult.exception);
         }
-
+        /// <summary>
+        /// UC2.1 Given Indian State Code File Should Return Indian State Census Count.
+        /// </summary>
+        [Test]
+        public void GivenIndianStateCodeFile_ShouldReturnIndianStateCensusCount()
+        {
+            ///Act
+            stateRecord = censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, indianStateCodeFilePath, indianStateCodeHeaders);
+            ///Assert
+            Assert.AreEqual(37, stateRecord.Count);
+        }
+        /// <summary>
+        ///UC2.2 Given Wrong Indian State Code File Should Thrown Census Analyser Exception
+        /// </summary>
+        [Test]
+        public void GivenWrongIndianStateCodeFile_ShouldThrownCensusAnalyserException()
+        {
+            ///Act
+            var indianStateCodeResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, wrongIndianStateCodeFilePath, indianStateCodeHeaders));
+            ///Assert
+            Assert.AreEqual(CensusAnalyserException.Exception.FILE_NOT_FOUND, indianStateCodeResult.exception);
+        }
+        /// <summary>
+        ///UC2.3 Given Worng Indian State Code FileType Should Thrown Census Analyser Exception
+        /// </summary>
+        [Test]
+        public void GivenWrongIndianStateCodeFileType_ShouldThrownCensusAnalyserException()
+        {
+            ///Act
+            var indianStateCodeResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, wrongIndianStateCodeFileType, indianStateCodeHeaders));
+            ///Assert
+            Assert.AreEqual(CensusAnalyserException.Exception.INVALID_FILE_TYPE, indianStateCodeResult.exception);
+        }
+        /// <summary>
+        ///UC2.4 Given Incorrect Indian State Code Delimeter file type Should Thrown Census Analyser Exception
+        /// </summary>
+        [Test]
+        public void GivenIncorrectIndianStateCodeDelimeterFileType_ShouldThrownCensusAnalyserException()
+        {
+            //Act
+            var indianStateCodeResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, delimeterIndianStateCodeFilePath, indianStateCodeHeaders));
+            //Assert
+            Assert.AreEqual(CensusAnalyserException.Exception.INCOREECT_DELIMITER, indianStateCodeResult.exception);
+        }
+        /// <summary>
+        ///UC2.5 Given Incorrect Indian State Code file Header type Should Thrown Census Analyser Exception
+        /// </summary>
+        [Test]
+        public void GivenIncorrectIndianStateCodeFileHeaderType_ShouldThrownCensusAnalyserException()
+        {
+            ///Act
+            var indianStateCodeResult = Assert.Throws<CensusAnalyserException>(() => censusAnalyser.LoadCensusData(CensusAnalyser.Country.INDIA, indianStateCodeFilePath, wrongHeaderIndianStateCodeFilePath));
+            //Assert
+            Assert.AreEqual(CensusAnalyserException.Exception.INCORRECT_HEADER, indianStateCodeResult.exception);
+        }
     }
 }
